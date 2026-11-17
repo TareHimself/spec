@@ -185,6 +185,7 @@ Once `precise` is fixed, lower `invariant` to `precise` on HLSL, as SPIRV-Cross 
 Questions
 ---------
 
+- **Shared rule with `precise`.** Both features need Slang's own passes to keep the computation feeding a value the same, whatever code surrounds it. Should this proposal define that rule, or should it be defined once and shared with `precise`?
 - **Metal mesh shaders.** The MSL spec lists `invariant` for mesh vertex attributes, but describes `-fpreserve-invariance` only for vertex shaders. Is the guarantee kept for mesh shaders, or should Slang warn there?
 - **GLSL input.** Slang's GLSL compatibility mode does not accept `invariant gl_Position;` or `invariant out` declarations yet. Should this proposal cover them, including `#pragma STDGL invariant(all)`, or leave them to a follow-up?
 - **Reflection.** An application that compiles Slang's Metal source itself has to know to set `preserveInvariance`. Should Slang report through reflection that an entry point uses `invariant`?
